@@ -14,7 +14,6 @@ cls()
 char_list = []
 char_list[:] = user_data
 cool_list = []
-final_output = 0
 maximum = math.factorial(len(char_list))
 x = 0
 rep = dict(Counter(char_list))
@@ -35,6 +34,7 @@ for k in foo.keys():
     maximum //= math.factorial(foo[k])
 
 i = 0
+final_output = 0
 while i < maximum:
     words = ""
     random.shuffle(char_list)
@@ -43,7 +43,6 @@ while i < maximum:
         continue
     if words not in cool_list:
         cool_list.append(words)
-        #final_output -= 1
         print(cool_list[final_output])
         i += 1
     final_output += 1
