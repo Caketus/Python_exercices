@@ -22,6 +22,21 @@
 #   ...
 # Until the user guesses the number.
 
+import random
+
+def nb_checker(str):
+    if len(str) != 4:
+        print("We need EXACTLY 4 digits ! Try again.\n")
+    if str.isigit() == False:
+        print("I said DIGITS ! :\n")
+    cows_and_bulls()
 
 
-def cows_and_bulls(input("Let's play cows and bulls ! Guess the 4 numbers:\n"))
+def cows_and_bulls():
+    str = (input("Write a 4 digits number: \n"))
+    nb_checker(str)
+    solution = format(random.randint(0000, 9999), '04d')
+
+
+
+cows_and_bulls()
