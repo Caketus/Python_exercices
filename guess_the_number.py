@@ -1,4 +1,4 @@
-import random
+from random import randrange
 
 # Checks the difficulty and also checks if the input is correct
 
@@ -24,10 +24,15 @@ def user_nb_check(user_guess, max_nb, lowest_nb):
         user_nb_check(user_guess, max_nb, lowest_nb)
     return (user_guess)
 
+# For the rand_nb variable, I add zeros in front, depending of the max_nb
+# and cast it as a string so it keeps the zeros
+
 def nb_guess():
     max_nb = difficulty_check(0, 0)
     lowest_nb = 0
     user_guess = 0
+    rand_nb = str("%0*d" % (len(str(max_nb)), randrange(max_nb - 1)))
+    print("randint = ", rand_nb)
     user_guess = user_nb_check(str(user_guess), max_nb, lowest_nb)
 
 nb_guess()
