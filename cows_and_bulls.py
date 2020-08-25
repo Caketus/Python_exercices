@@ -24,26 +24,35 @@ def verify_entry():
     return user_digits
 
 def compare_digits(user_digits, solution):
-    y = 0
     cows = 0
     bulls = 0
+    x = 0
+    y = 0
+    while x <= len(solution) - 1:
+        if solution[x] == user_digits[x]:
+            cows += 1
+            bulls -= 1
+        x += 1
     while y <= len(solution) - 1:
         x = 0
         while x <= len(user_digits) - 1:
-            if solution[y] == user_digits[x]:
+            if (solution[y] == user_digits[x]):
                 bulls += 1
             x += 1
         y += 1
     x = 0
-    while x <= len(solution) - 1:
-        if solution[x] == user_digits[x]:
-            cows += 1
+    while x < len(user_digits):
+        y = 0
+        while y < len(user_digits):
+            if x != y and user_digits[x] == solution[y] and cows != 0:
+                bulls -= 1
+            y += 1
         x += 1
     return (cows, bulls)
 
 def cows_and_bulls():
     user_digits = verify_entry()
-    solution = format(random.randint(0000,9999), '04d')
+    solution = "4834" # format(random.randint(0000,9999), '04d')
     cows, bulls = compare_digits(user_digits, solution)
     print("Solution = ", solution)
     print("cows ==", cows)
